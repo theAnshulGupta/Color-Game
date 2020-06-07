@@ -1,8 +1,6 @@
 let numberOfSquares = 6;
-// let colors = generateRandomColors(numberOfSquares);
 let colors = [];
 let pickedColor;
-// let pickedColor = pickColor();
 
 let squares = document.querySelectorAll(".square");
 let colorDisplay = document.getElementById("colorDisplay");
@@ -10,9 +8,6 @@ let messageDisplay = document.getElementById("message");
 
 let h1 = document.querySelector("h1");
 let resetButton = document.getElementById("reset");
-
-// let easyBtn = document.getElementById("easyBtn");
-// let hardBtn = document.getElementById("hardBtn");
 
 let modeButtons = document.querySelectorAll(".mode");
 
@@ -34,7 +29,7 @@ function setUpModes() {
       this.classList.add("selected");
       this.textContent == "Medium"
         ? (numberOfSquares = 6)
-        : (numberOfSquares = 3); //ternary: if med then num is 6, or else it is 3
+        : (numberOfSquares = 3);
       if (this.textContent == "Hard") {
         numberOfSquares = 9;
       }
@@ -45,16 +40,12 @@ function setUpModes() {
 
 function setUpSquares() {
   for (let i = 0; i < squares.length; i++) {
-    //add initial colors to square
-    //   squares[i].style.backgroundColor = colors[i];
 
-    //add clicked listeners to square
     squares[i].addEventListener("click", function () {
       let clickedColor = this.style.backgroundColor;
       console.log(clickedColor);
       if (clickedColor === pickedColor) {
-        // alert("correct")
-        changeColors(clickedColor); //pickedColor also works
+        changeColors(clickedColor); 
         messageDisplay.textContent = "Correct!";
         resetButton.textContent = "Play Again?";
         h1.style.backgroundColor = clickedColor;
@@ -65,6 +56,7 @@ function setUpSquares() {
     });
   }
 }
+//hard coding the easy and hard mode, removed for convinence in creating more game modes
 
 // easyBtn.addEventListener("click", function () {
 //   easyBtn.classList.add("selected");
@@ -117,6 +109,9 @@ function reset() {
 colorDisplay.textContent = pickedColor;
 
 resetButton.addEventListener("click", function () {
+  
+  //hard coding the reset function, not needed
+  
   //   resetButton.textContent = "New Colors"; //  this.textContent = "New Colors"; works
   //   colors = generateRandomColors(numberOfSquares);
   //   pickedColor = pickColor();
